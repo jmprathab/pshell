@@ -3,10 +3,7 @@
 # *****************************************************************************
 
 set(UTILITIES_SOURCES
-        main/cpp/List.cpp
-        main/cpp/ListImpl.cpp
         main/cpp/String.cpp
-        main/headers/ListImpl.hpp
         main/public/List.hpp
         main/public/String.hpp
         )
@@ -17,6 +14,8 @@ add_library(utilities
         )
 
 include_directories(
+        ${gtest_SOURCE_DIR}/include
+        ${gtest_SOURCE_DIR}
         main/headers
         main/public
 )
@@ -26,7 +25,7 @@ include_directories(
 # *****************************************************************************
 
 set(UTILITIES_TEST_SOURCES
-        test/main.cpp
+        test/ListTest.cpp
         )
 
 add_executable(utilities_test
@@ -34,5 +33,7 @@ add_executable(utilities_test
         )
 
 target_link_libraries(utilities_test
+        gtest
+        gtest_main
         utilities
         )

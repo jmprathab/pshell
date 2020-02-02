@@ -786,5 +786,8 @@ MigrationBackup/
 # End of https://www.gitignore.io/api/c,c++,linux,xcode,macos,gradle,windows,eclipse,appcode+all,intellij+all,visualstudio,swiftpackagemanager
 
 # Binaries and Libraries target location
-./bin
-./lib
+bin/
+lib/
+
+# Ignoring thirdpartylibs folder
+thirdpartylibs/
