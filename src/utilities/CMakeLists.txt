@@ -18,6 +18,8 @@ include_directories(
         main/public
 )
 
+SET_TARGET_PROPERTIES(utilities PROPERTIES LINKER_LANGUAGE CXX)
+
 # *****************************************************************************
 # Building utilities library test
 # *****************************************************************************
@@ -35,3 +37,5 @@ target_link_libraries(utilities_test
         gtest_main
         utilities
         )
+
+SET_TARGET_PROPERTIES(utilities_test PROPERTIES LINKER_LANGUAGE CXX)
