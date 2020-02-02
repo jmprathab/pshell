@@ -3,9 +3,7 @@
 # *****************************************************************************
 
 set(UTILITIES_SOURCES
-        main/cpp/String.cpp
         main/public/List.hpp
-        main/public/String.hpp
         )
 
 add_library(utilities
