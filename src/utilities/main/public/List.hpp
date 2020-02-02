@@ -2,14 +2,17 @@
 
 #include <memory>
 #include <list>
+#include "Iterator.hpp"
 
 /**
  * Declaration of ListImpl class
  * @tparam T Any specific type
  */
+
 template<typename T>
 class ListImpl {
 public:
+
     ListImpl();
 
     ~ListImpl();
@@ -23,6 +26,14 @@ public:
     void removeBack(T element);
 
     void clear();
+
+    Iterator::ListIterator<T> begin();
+
+    Iterator::ListIterator<T> end();
+
+    Iterator::ConstListIterator<T> begin() const;
+
+    Iterator::ConstListIterator<T> end() const;
 
 private:
     std::list<T> mList;
@@ -54,6 +65,14 @@ namespace PSTL {
 
         void clear();
 
+        Iterator::ListIterator<T> begin();
+
+        Iterator::ListIterator<T> end();
+
+        Iterator::ConstListIterator<T> begin() const;
+
+        Iterator::ConstListIterator<T> end() const;
+
     private:
         std::unique_ptr<ListImpl<T> > m_pImpl;
     };
@@ -79,7 +98,7 @@ void ListImpl<T>::insertFront(T element) {
 
 template<typename T>
 void ListImpl<T>::insertBack(T element) {
-    mList.pop_back(element);
+    mList.push_back(element);
 }
 
 template<typename T>
@@ -97,6 +116,25 @@ void ListImpl<T>::clear() {
     mList.clear();
 }
 
+template<typename T>
+Iterator::ListIterator<T> ListImpl<T>::begin() {
+    return mList.begin();
+}
+
+template<typename T>
+Iterator::ListIterator<T> ListImpl<T>::end() {
+    return mList.end();
+}
+
+template<typename T>
+Iterator::ConstListIterator<T> ListImpl<T>::begin() const {
+    return mList.begin();
+}
+
+template<typename T>
+Iterator::ConstListIterator<T> ListImpl<T>::end() const {
+    return mList.end();
+}
 
 /**
  * Definition of List class
@@ -137,4 +175,24 @@ void PSTL::List<T>::removeBack(T element) {
 template<typename T>
 void PSTL::List<T>::clear() {
     m_pImpl->clear();
+}
+
+template<typename T>
+Iterator::ListIterator<T> PSTL::List<T>::begin() {
+    return m_pImpl->begin();
+}
+
+template<typename T>
+Iterator::ListIterator<T> PSTL::List<T>::end() {
+    return m_pImpl->end();
+}
+
+template<typename T>
+Iterator::ConstListIterator<T> PSTL::List<T>::begin() const {
+    return m_pImpl->begin();
+}
+
+template<typename T>
+Iterator::ConstListIterator<T> PSTL::List<T>::end() const {
+    return m_pImpl->end();
 }

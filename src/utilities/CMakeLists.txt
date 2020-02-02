@@ -3,7 +3,14 @@
 # *****************************************************************************
 
 set(UTILITIES_SOURCES
+        main/cpp/Element.cpp
+        main/cpp/Cache.cpp
+        main/cpp/OrderedCache.cpp
         main/public/List.hpp
+        main/public/Cache.hpp
+        main/public/Element.hpp
+        main/public/Iterator.hpp
+        main/public/OrderedCache.hpp
         )
 
 add_library(utilities
@@ -26,6 +33,7 @@ SET_TARGET_PROPERTIES(utilities PROPERTIES LINKER_LANGUAGE CXX)
 
 set(UTILITIES_TEST_SOURCES
         test/ListTest.cpp
+        test/CacheTest.cpp
         )
 
 add_executable(utilities_test
