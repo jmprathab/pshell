@@ -40,9 +40,15 @@ There are several variants of build:
 - `MinSizeRel` - minimal size release
 - `AddressSanitizer` - special build to run under [Address Sanitizer](https://code.google.com/p/address-sanitizer/) (compiler support and libasan required)
 
-## Run tests or benchmarks
-
 All binaries (main executable, unit tests, etc.) will be in `bin/{build_type}`.
+
+## Generate documentation
+
+Use Doxygen to build documentation
+
+	$ doxygen docs/Doxyfile
+
+Documentation is generated inside docs/Doxygen folder.
 
 ## Contributing
 
@@ -57,3 +63,4 @@ Please make sure to update tests as appropriate.
 ## Credits
 
 * Thanks to all the open source community
+* [Googletest](https://github.com/google/googletest)

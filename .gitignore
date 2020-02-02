@@ -791,3 +791,6 @@ lib/
 
 # Ignoring thirdpartylibs folder
 thirdpartylibs/
+
+# Ignoring doxygen generated output
+docs/
